@@ -16,18 +16,21 @@ export default function Login() {
     return <Navigate to="/" />;
   } else {
     return (
-      <main className="flex">
+      <main className="flex min-h-screen">
         <form
           className="m-auto bg-gray-100 p-8 rounded-3xl w-96 flex flex-col gap-4"
           onSubmit={async (e) => {
             e.preventDefault();
-            const response = await fetch("http://localhost:3000/api/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(login),
-            });
+            const response = await fetch(
+              "http://localhost:3000/api/auth/login",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(login),
+              }
+            );
             if (response.ok) {
               const auth = await response.json();
               localStorage.setItem("token", auth.token);
@@ -40,7 +43,6 @@ export default function Login() {
           }}
         >
           <h1 className="text-center text-xl">Login</h1>
-          <h1 className="text-center text-lg">Gunakan akun Integer Anda</h1>
           <TextField
             variant="outlined"
             type="email"

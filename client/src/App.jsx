@@ -13,10 +13,11 @@ export default function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    api("/me").then((user) => {
+    api("/auth/me").then((user) => {
       if (!user) {
         setUser(null);
       }
+      setUser(user);
     });
   }, []);
 

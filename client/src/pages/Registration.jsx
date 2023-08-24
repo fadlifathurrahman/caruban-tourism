@@ -12,22 +12,26 @@ export default function Registration() {
   });
 
   return (
-    <main className="flex">
+    <main className="flex min-h-screen">
       <form
         className="m-auto bg-gray-100 p-8 rounded-3xl w-96 flex flex-col gap-4"
         onSubmit={async (e) => {
           e.preventDefault();
-          const response = await fetch("http://localhost:3000/api/register", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(signUp),
-          });
+          const response = await fetch(
+            "http://localhost:3000/api/users/register",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(signUp),
+            }
+          );
           if (response.ok) {
             alert("Your account is successfully created.");
           } else {
-            alert("Email was using.");
+            const message = await response.text();
+            alert(message);
           }
         }}
       >
@@ -56,7 +60,6 @@ export default function Registration() {
           label="Name"
           className="w-full"
           required
-          autoFocus
           onChange={(e) => setSignUp({ ...signUp, name: e.target.value })}
         />
         <TextField
@@ -65,7 +68,6 @@ export default function Registration() {
           label="Username"
           className="w-full"
           required
-          autoFocus
           onChange={(e) => setSignUp({ ...signUp, username: e.target.value })}
         />
         <TextField
@@ -74,11 +76,9 @@ export default function Registration() {
           label="Phone"
           className="w-full"
           required
-          autoFocus
           onChange={(e) => setSignUp({ ...signUp, phone: e.target.value })}
         />
         <div className="flex justify-between">
-          {/* <Button>Buat akun</Button> */}
           <Button type="submit" variant="contained">
             Simpan
           </Button>
