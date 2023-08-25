@@ -7,7 +7,7 @@ import { UserContext } from "../App";
 
 export default function DropdownMenu() {
   const [open, setOpen] = useState(false);
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <div className="flex justify-center text-black">
@@ -23,7 +23,7 @@ export default function DropdownMenu() {
             open ? "block" : "hidden"
           }`}
         >
-          <Link to="/edit">
+          <Link to={`/auth/edit/${user.id}`}>
             <button className="flex w-full items-center gap-2 py-2 px-3 text-sm hover:bg-gray-100">
               <LuSettings /> <span>Setting</span>
             </button>

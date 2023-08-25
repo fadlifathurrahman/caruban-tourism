@@ -8,6 +8,7 @@ import Place from "./pages/Place.jsx";
 import About from "./About.jsx";
 import Login from "./pages/Login.jsx";
 import Registration from "./pages/Registration.jsx";
+import EditAccount from "./pages/EditAccount.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
         element: <Registration />,
       },
       {
-        path: "/edit",
-        element: <Registration />,
+        path: "/auth/edit/:id",
+        element: <EditAccount />,
       },
       {
         path: "/about",

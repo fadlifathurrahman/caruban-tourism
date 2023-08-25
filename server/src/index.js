@@ -27,6 +27,7 @@ router.use("/places", placesRouter);
 
 // using middleware
 router.use(authMiddleware);
+router.use("/auth/edit", authRouter);
 
 const port = 3000;
 app.listen(port, () => console.log(`Running in http://localhost:${port}`));

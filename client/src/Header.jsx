@@ -31,7 +31,7 @@ export default function Header() {
         {user ? (
           <DropdownMenu />
         ) : (
-          <div>
+          <div className="flex gap-4">
             <Link to="/login">
               <button>Login</button>
             </Link>
