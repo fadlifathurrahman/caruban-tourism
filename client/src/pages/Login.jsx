@@ -1,9 +1,21 @@
+// import Visibility from "@mui/icons-material/Visibility";
+// import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import IconButton from "@mui/material/IconButton";
+// import Input from "@mui/material/Input";
+// import InputLabel from "@mui/material/InputLabel";
+// import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { Navigate, useNavigate, useOutletContext } from "react-router-dom";
 
 export default function Login() {
+  // const [showPassword, setShowPassword] = useState(false);
+  // const handleClickShowPassword = () => setShowPassword((show) => !show);
+  // const handleMouseDownPassword = (event) => {
+  //   event.preventDefault();
+  // };
+
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -22,7 +34,7 @@ export default function Login() {
           onSubmit={async (e) => {
             e.preventDefault();
             const response = await fetch(
-              "http://localhost:3000/api/auth/login",
+              "http://localhost:3000/api/users/login",
               {
                 method: "POST",
                 headers: {
@@ -34,7 +46,8 @@ export default function Login() {
             if (response.ok) {
               const auth = await response.json();
               localStorage.setItem("token", auth.token);
-              setUser(auth.user);
+              await setUser(auth.user);
+              alert("Login success.");
               navigate("/");
             } else {
               const message = await response.text();
@@ -52,6 +65,29 @@ export default function Login() {
             autoFocus
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
+          {/* <InputLabel htmlFor="standard-adornment-password">
+            Password
+          </InputLabel>
+          <Input
+            id="standard-adornment-password"
+            type={showPassword ? "text" : "password"}
+            endAdornment={
+              <InputAdornment
+                position="end"
+                onChange={(e) =>
+                  setLogin({ ...login, password: e.target.value })
+                }
+              >
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            }
+          /> */}
           <TextField
             variant="outlined"
             type="password"

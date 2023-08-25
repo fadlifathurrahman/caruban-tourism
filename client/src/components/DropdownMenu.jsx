@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { LuSettings, LuLogOut } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../App";
 
 export default function DropdownMenu() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
@@ -33,6 +34,7 @@ export default function DropdownMenu() {
               confirm("Are you sure for logout?");
               localStorage.removeItem("token");
               setUser(null);
+              navigate("/");
             }}
             className="flex w-full items-center gap-2 py-2 px-3 text-sm hover:bg-gray-100"
           >

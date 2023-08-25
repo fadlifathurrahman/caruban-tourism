@@ -37,7 +37,7 @@ export default function Home() {
                   {place.name}
                 </div>
                 {/* batik */}
-                <img src={batik} className="h-40 w-56 -ml-20 relative" />
+                <img src={batik} className="h-36 w-52 -ml-20 relative" />
               </div>
 
               {/* place card body */}

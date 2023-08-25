@@ -19,11 +19,9 @@ app.use(express.json()); // membaca body
 
 const router = express.Router();
 app.use("/api", router);
-
 router.use("/auth", authRouter);
-router.use("/users", users);
-// access places
 router.use("/places", placesRouter);
+router.use("/users", users);
 
 // using middleware
 router.use(authMiddleware);
