@@ -97,7 +97,7 @@ export default function Login() {
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
           />
           <div className="flex justify-between">
-            <Button>Buat akun</Button>
+            {/* <Button>Buat akun</Button> */}
             <Button type="submit" variant="contained">
               Login
             </Button>
