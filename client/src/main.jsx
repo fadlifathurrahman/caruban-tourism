@@ -5,10 +5,11 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Place from "./pages/Place.jsx";
-import About from "./About.jsx";
+import About from "./pages/About.jsx";
 import Login from "./pages/Login.jsx";
 import Registration from "./pages/Registration.jsx";
 import EditAccount from "./pages/EditAccount.jsx";
+import Dish from "./pages/Dish.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/places/:id",
         element: <Place />,
+      },
+      {
+        path: "/dishes/:id",
+        element: <Dish />,
       },
     ],
   },

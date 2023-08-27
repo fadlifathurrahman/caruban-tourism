@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { UserContext } from "./App";
+import { UserContext } from "../App";
 import batik from "/batik-under.png";
 import shrimp from "/shrimp.png";
-import DropdownMenu from "./components/DropdownMenu";
+import DropdownMenu from "./DropdownMenu";
 
 export default function Header() {
   const { user } = useContext(UserContext);

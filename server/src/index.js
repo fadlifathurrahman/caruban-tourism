@@ -8,6 +8,7 @@ import authMiddleware from "./middlewares/auth.js";
 import authRouter from "./routes/auth.js";
 // import components
 import placesRouter from "./routes/places.js";
+import dishesRouter from "./routes/dishes.js";
 import users from "./routes/users.js";
 
 // mengexport function express
@@ -21,6 +22,7 @@ const router = express.Router();
 app.use("/api", router);
 router.use("/auth", authRouter);
 router.use("/places", placesRouter);
+router.use("/dishes", dishesRouter);
 router.use("/users", users);
 
 // using middleware

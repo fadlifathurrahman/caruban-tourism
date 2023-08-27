@@ -45,7 +45,7 @@ export default function AllPlaces() {
           className="max-w-screen-xl py-4 gap-y-6
           flex flex-wrap justify-evenly items-center"
         >
-          {/* iteration for places */}
+          {/* iteration and filter for places */}
           {places
             .filter(
               (place) =>
