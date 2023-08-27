@@ -69,13 +69,18 @@ export default function EditAccount() {
           <h1 className="text-center text-xl">Edit Email</h1>
           <label>
             <div className="flex justify-between">
-              <span>{user.email} </span>
+              <span className="truncate ... pr-5">{user.email} </span>
               {editEmail === false ? (
                 <Button
                   variant="contained"
                   className={editEmail == false ? "" : "hidden"}
                   onClick={() => {
                     setEditEmail(true);
+                    setEditPassword(false);
+                    setEditUsername(false);
+                    setEditName(false);
+                    setEditPhone(false);
+                    setDeleteAccount(false);
                   }}
                 >
                   Edit
@@ -161,6 +166,11 @@ export default function EditAccount() {
                   className={editPassword == false ? "" : "hidden"}
                   onClick={() => {
                     setEditPassword(true);
+                    setEditEmail(false);
+                    setEditUsername(false);
+                    setEditName(false);
+                    setEditPhone(false);
+                    setDeleteAccount(false);
                   }}
                 >
                   Edit
@@ -267,13 +277,18 @@ export default function EditAccount() {
           <h1 className="text-center text-xl">Edit Username</h1>
           <label>
             <div className="flex justify-between">
-              <span>{user.username} </span>
+              <span className="truncate ... pr-5">{user.username} </span>
               {editUsername === false ? (
                 <Button
                   variant="contained"
                   className={editUsername == false ? "" : "hidden"}
                   onClick={() => {
                     setEditUsername(true);
+                    setEditEmail(false);
+                    setEditPassword(false);
+                    setEditName(false);
+                    setEditPhone(false);
+                    setDeleteAccount(false);
                   }}
                 >
                   Edit
@@ -351,13 +366,18 @@ export default function EditAccount() {
           <h1 className="text-center text-xl">Edit Name</h1>
           <label>
             <div className="flex justify-between">
-              <span>{user.name} </span>
+              <span className="truncate ... pr-5">{user.name} </span>
               {editName === false ? (
                 <Button
                   variant="contained"
                   className={editName == false ? "" : "hidden"}
                   onClick={() => {
                     setEditName(true);
+                    setEditEmail(false);
+                    setEditPassword(false);
+                    setEditUsername(false);
+                    setEditPhone(false);
+                    setDeleteAccount(false);
                   }}
                 >
                   Edit
@@ -431,13 +451,18 @@ export default function EditAccount() {
           <h1 className="text-center text-xl">Edit Phone Number</h1>
           <label>
             <div className="flex justify-between">
-              <span>{user.phone} </span>
+              <span className="truncate ... pr-5">{user.phone} </span>
               {editPhone === false ? (
                 <Button
                   variant="contained"
                   className={editPhone == false ? "" : "hidden"}
                   onClick={() => {
                     setEditPhone(true);
+                    setEditEmail(false);
+                    setEditPassword(false);
+                    setEditUsername(false);
+                    setEditName(false);
+                    setDeleteAccount(false);
                   }}
                 >
                   Edit
@@ -522,6 +547,11 @@ export default function EditAccount() {
                   className={deleteAccount == false ? "" : "hidden"}
                   onClick={() => {
                     setDeleteAccount(true);
+                    setEditEmail(false);
+                    setEditPassword(false);
+                    setEditUsername(false);
+                    setEditName(false);
+                    setEditPhone(false);
                   }}
                 >
                   Delete Account

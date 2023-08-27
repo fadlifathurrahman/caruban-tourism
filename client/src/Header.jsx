@@ -29,11 +29,11 @@ export default function Header() {
             </p>
           </div>
         </div>
-        <img src={batik} className="-rotate-12 h-20 w-40 mt-24 -ml-14" />
+        <img src={batik} className="-rotate-12 h-24 w-40 mt-24 -ml-14" />
       </div>
       <div className="flex gap-4 items-center">
         <Link to="/about">
-          <div>About</div>
+          <button>About</button>
         </Link>
         {user ? (
           <DropdownMenu />

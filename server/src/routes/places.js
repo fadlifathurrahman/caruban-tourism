@@ -5,8 +5,8 @@ const router = express.Router();
 
 // get all places data
 router.get("/", async (_req, res) => {
-  const planets = await conn.query("SELECT * FROM places");
-  res.json(planets);
+  const places = await conn.query("SELECT * FROM places");
+  res.json(places);
 });
 
 // get by id
