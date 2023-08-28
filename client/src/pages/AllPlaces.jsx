@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Input, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import { BsTicketPerforated } from "react-icons/bs";
 import batik from "/batik.png";
 
@@ -19,12 +19,16 @@ export default function AllPlaces() {
 
   return (
     <main>
-      <header>
-        <label>
+      <header
+        className="bg-gray-700 text-white text-sm flex justify-center items-center
+        gap-10 py-5 mt-24"
+      >
+        <label className="flex items-center gap-2">
           Category:
           <select
             value={showByCategory}
             onChange={(e) => setShowByCategory(e.target.value)}
+            className="text-gray-950 px-2 py-2"
           >
             <option value="">All</option>
             <option value="1">Heritage</option>
@@ -34,9 +38,14 @@ export default function AllPlaces() {
             <option value="5">Shopping</option>
           </select>
         </label>
-        <label>
-          Seacrh places:
-          <Input type="text" onChange={(e) => setKeyword(e.target.value)} />
+        <label className="flex items-center gap-2">
+          Search :
+          <input
+            type="text"
+            className="bg-white text-slate-950 px-2 py-2"
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Insert place`s name"
+          />
         </label>
       </header>
 

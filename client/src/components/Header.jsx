@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../App";
-import batik from "/batik-under.png";
-import shrimp from "/shrimp.png";
-import DropdownMenu from "./DropdownMenu";
+import DropdownAccount from "./DropdownAccount";
+import HeaderLogo from "./HeaderLogo";
 
 export default function Header() {
   const { user } = useContext(UserContext);
@@ -15,28 +14,13 @@ export default function Header() {
       bg-slate-900/90 text-white
      flex justify-between items-center"
     >
-      <div className="flex ">
-        <div className="flex flex-col justify-center items-center pt-3">
-          <div className="flex flex-row items-center -mt-8">
-            <img src={shrimp} className="-rotate-12 h-24 -mr-8" />
-            <p className="text-xl font-serif">
-              <Link to="/">aruban</Link>
-            </p>
-          </div>
-          <div className="flex justify-center items-center">
-            <p className="text-xl font-serif -mt-12 ml-32">
-              <Link to="/">Tourism</Link>
-            </p>
-          </div>
-        </div>
-        <img src={batik} className="-rotate-12 h-24 w-40 mt-24 -ml-14" />
-      </div>
+      <HeaderLogo />
       <div className="flex gap-4 items-center">
         <Link to="/about">
           <button>About</button>
         </Link>
         {user ? (
-          <DropdownMenu />
+          <DropdownAccount />
         ) : (
           <div className="flex gap-4">
             <Link to="/login">

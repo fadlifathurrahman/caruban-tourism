@@ -1,25 +1,14 @@
-// import Visibility from "@mui/icons-material/Visibility";
-// import VisibilityOff from "@mui/icons-material/VisibilityOff";
-// import IconButton from "@mui/material/IconButton";
-// import Input from "@mui/material/Input";
-// import InputLabel from "@mui/material/InputLabel";
-// import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { Navigate, useNavigate, useOutletContext } from "react-router-dom";
 
 export default function Login() {
-  // const [showPassword, setShowPassword] = useState(false);
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
   const navigate = useNavigate();
 
   const [user, setUser] = useOutletContext();
@@ -56,6 +45,7 @@ export default function Login() {
           }}
         >
           <h1 className="text-center text-xl">Login</h1>
+
           <TextField
             variant="outlined"
             type="email"
@@ -65,29 +55,7 @@ export default function Login() {
             autoFocus
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
-          {/* <InputLabel htmlFor="standard-adornment-password">
-            Password
-          </InputLabel>
-          <Input
-            id="standard-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
-              <InputAdornment
-                position="end"
-                onChange={(e) =>
-                  setLogin({ ...login, password: e.target.value })
-                }
-              >
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          /> */}
+
           <TextField
             variant="outlined"
             type="password"
@@ -97,7 +65,6 @@ export default function Login() {
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
           />
           <div className="flex justify-between">
-            {/* <Button>Buat akun</Button> */}
             <Button type="submit" variant="contained">
               Login
             </Button>

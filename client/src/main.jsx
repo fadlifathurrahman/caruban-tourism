@@ -10,6 +10,8 @@ import Login from "./pages/Login.jsx";
 import Registration from "./pages/Registration.jsx";
 import EditAccount from "./pages/EditAccount.jsx";
 import Dish from "./pages/Dish.jsx";
+import AllPlaces from "./pages/AllPlaces.jsx";
+import AllDishes from "./pages/AllDishes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,8 +39,16 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/places/all",
+        element: <AllPlaces />,
+      },
+      {
         path: "/places/:id",
         element: <Place />,
+      },
+      {
+        path: "/dishes/all",
+        element: <AllDishes />,
       },
       {
         path: "/dishes/:id",

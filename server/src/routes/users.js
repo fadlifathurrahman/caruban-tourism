@@ -16,7 +16,6 @@ router.post("/login", async (req, res) => {
         token: jwt.sign(user, process.env.SECRET_KEY),
         user,
       });
-      // res.status(200).send("Login success.");
     } else {
       res.status(401).send("Invalid email or password.");
     }

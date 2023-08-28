@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Input, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 import batik from "/batik.png";
 
 export default function AllDishes() {
@@ -17,10 +17,18 @@ export default function AllDishes() {
 
   return (
     <main>
-      <header>
-        <label>
-          Seacrh dishes:
-          <Input type="text" onChange={(e) => setKeyword(e.target.value)} />
+      <header
+        className="bg-gray-700 text-white text-sm flex justify-center
+      py-5 mt-24"
+      >
+        <label className="flex items-center gap-2">
+          Search :
+          <input
+            type="text"
+            className="bg-white text-slate-950 px-2 py-2"
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Insert dish`s name"
+          />
         </label>
       </header>
 
@@ -31,7 +39,9 @@ export default function AllDishes() {
         >
           {/* iteration and filter for dishes */}
           {dishes
-            .filter((dish) => dish.name.toLowerCase().includes(keyword))
+            .filter((dish) =>
+              dish.name.toLowerCase().includes(keyword.toLowerCase())
+            )
             .map((dish) => (
               // dish`s container
               <div key={dish.id}>
@@ -44,9 +54,11 @@ export default function AllDishes() {
                   >
                     &quot;{dish.name}&quot;
                   </div>
+
                   {/* batik */}
                   <img src={batik} className="h-36 w-52 -ml-20 relative" />
                 </div>
+
                 {/* dish card body */}
                 <div
                   className="bg-slate-700 p-6 -mt-14 ml-6 w-80
@@ -54,8 +66,9 @@ export default function AllDishes() {
                 >
                   {/* dish`s image */}
                   <img src={dish.image} className="h-48" />
+
                   {/* dish`s detail and price */}
-                  <div className="flex justify-between items-center w-full">
+                  <div className="flex justify-center items-center w-full">
                     <Link to={`/dishes/${dish.id}`}>
                       <button className="bg-red-700 text-white text-sm w-32 py-1">
                         Detail

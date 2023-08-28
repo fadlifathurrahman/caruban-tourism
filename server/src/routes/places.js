@@ -21,4 +21,18 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// get additional
+router.get("/additional-image/:id", async (req, res) => {
+  const prepare = await conn.prepare(
+    "SELECT * FROM additional_place_image WHERE id = ?"
+  );
+  const place = (await prepare.execute([req.params.id]))[0];
+  if (place) {
+    res.json(place);
+  } else {
+    res.status(404);
+    res.send("Places not found.");
+  }
+});
+
 export default router;

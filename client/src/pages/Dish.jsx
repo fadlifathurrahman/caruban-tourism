@@ -15,33 +15,44 @@ export default function Dish() {
   }, [id]);
 
   return (
-    <main className="px-6">
+    <main className="px-6 max-w-screen-2xl">
       {dish ? (
-        <div className="flex flex-col max-w-screen-xl min-h-screen justify-center items-center gap-6">
-          <div className="flex gap-6">
+        <div className="flex w-full min-h-screen justify-center items-center gap-6">
+          <div className="flex gap-6 w-full">
+            {/* image */}
             <div
               className="flex flex-col gap-6
               w-1/2"
             >
               <img src={dish.image} alt={dish.name} className="h-80" />
             </div>
-            <div
-              className="w-1/3 gap-4
+
+            {/* description and button container */}
+            <div className="w-1/2 flex flex-col justify-between">
+              {/* description */}
+              <div
+                className="gap-4
               flex flex-col"
-            >
-              <p className="text-3xl">&quot;{dish.name}&quot;</p>
-              <p>{dish.description}</p>
+              >
+                <p className="text-3xl">&quot;{dish.name}&quot;</p>
+                <p className="text-justify">{dish.description}</p>
+              </div>
+
+              {/* button */}
+              <div className="w-full">
+                <Button
+                  className="w-full"
+                  variant="contained"
+                  color="info"
+                  onClick={() =>
+                    window.open(`http://www.google.com/search?q=${dish.maps}`)
+                  }
+                >
+                  Browse
+                </Button>
+              </div>
             </div>
           </div>
-          <Button
-            variant="contained"
-            color="info"
-            onClick={() =>
-              window.open(`http://www.google.com/search?q=${dish.maps}`)
-            }
-          >
-            Browse
-          </Button>
         </div>
       ) : (
         <div className="h-screen flex justify-center items-center">
