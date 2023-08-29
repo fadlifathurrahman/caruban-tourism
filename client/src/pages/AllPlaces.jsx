@@ -18,12 +18,18 @@ export default function AllPlaces() {
   }, []);
 
   return (
-    <main>
+    <main className="">
+      {/* search bar */}
       <header
-        className="bg-gray-700 text-white text-sm flex justify-center items-center
+        className="bg-gray-700 text-white text-sm 
+        flex flex-warp justify-center items-center
         gap-10 py-5 mt-24"
       >
-        <label className="flex items-center gap-2">
+        <label
+          className="flex flex-col flex-wrap items-center 
+        gap-2 text-xs max-w-sm
+        md:flex-row"
+        >
           Category:
           <select
             value={showByCategory}
@@ -38,7 +44,10 @@ export default function AllPlaces() {
             <option value="5">Shopping</option>
           </select>
         </label>
-        <label className="flex items-center gap-2">
+        <label
+          className="flex flex-col items-center gap-2 text-xs
+        md:flex-row"
+        >
           Search :
           <input
             type="text"
@@ -51,7 +60,8 @@ export default function AllPlaces() {
 
       {places ? (
         <div
-          className="max-w-screen-xl py-4 gap-y-6
+          className="max-w-screen-xl text-xs
+           py-4 gap-y-6
           flex flex-wrap justify-evenly items-center"
         >
           {/* iteration and filter for places */}
@@ -62,30 +72,53 @@ export default function AllPlaces() {
                 place.category_id.toString().includes(showByCategory)
             )
             .map((place) => (
+              //
               // place`s container
               <div key={place.id}>
+                {/*  */}
                 {/* place card header */}
                 <div className="flex items-center">
+                  {/*  */}
                   {/* place`s name */}
                   <div
-                    className="bg-slate-800 text-white text-xl p-4 z-10 relative
-                    h-fit w-64 flex text-center justify-center rounded-bl-2xl rounded-tr-2xl"
+                    className="bg-slate-800 text-white
+                    p-3 z-10 relative
+                    h-fit w-52 flex text-center justify-center 
+                    rounded-bl-2xl rounded-tr-2xl"
                   >
                     {place.name}
                   </div>
+
                   {/* batik */}
-                  <img src={batik} className="h-36 w-52 -ml-20 relative" />
+                  <img
+                    src={batik}
+                    // xl:h-36 xl:w-52 xl0:-ml-2
+                    className="relative 
+                    w-40 -ml-10"
+                  />
                 </div>
+
                 {/* place card body */}
                 <div
-                  className="bg-slate-700 p-6 -mt-14 ml-6 w-80
-                gap-4 flex flex-col items-center rounded-bl-2xl rounded-tr-2xl"
+                  className="bg-slate-600 p-6 -mt-10 ml-6 w-60
+                gap-4 flex flex-col items-center 
+                rounded-b-2xl rounded-tr-2xl"
                 >
                   {/* place`s image */}
-                  <img src={place.image} className="h-48" />
+                  {/* h-48 */}
+                  <img
+                    src={place.image}
+                    className="h-28 
+                  sm:h-32"
+                  />
+
                   {/* place`s detail and price */}
                   <div className="flex justify-between items-center w-full">
-                    <p className="text-white text-sm flex gap-2 items-center ">
+                    <p className="text-white">#{place.category}</p>
+                    <p
+                      className="text-white flex gap-2 
+                    items-center "
+                    >
                       <BsTicketPerforated size={24} />
                       {place.ticket_price === 0
                         ? "Free"
@@ -94,12 +127,15 @@ export default function AllPlaces() {
                             currency: "IDR",
                           })}
                     </p>
-                    <Link to={`/places/${place.id}`}>
-                      <button className="bg-red-700 text-white text-sm w-32 py-1">
-                        Detail
-                      </button>
-                    </Link>
                   </div>
+                  <Link to={`/places/${place.id}`}>
+                    <button
+                      className="bg-red-700 text-white
+                      py-1 px-5"
+                    >
+                      Detail
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

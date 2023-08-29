@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { Navigate, useOutletContext } from "react-router-dom";
+import dance from "/mask-dance.png";
 
 export default function Registration() {
   const [signUp, setSignUp] = useState({
@@ -18,9 +19,13 @@ export default function Registration() {
     return <Navigate to="/" />;
   } else {
     return (
-      <main className="flex min-h-screen">
+      <main
+        className="flex min-h-screen items-center justify-center
+       mt-28"
+      >
+        <img src={dance} className="h-0 lg:h-80" />
         <form
-          className="m-auto bg-gray-100 p-8 rounded-3xl w-96 flex flex-col gap-4"
+          className="p-4 lg:w-1/4 flex flex-col gap-4"
           onSubmit={async (e) => {
             e.preventDefault();
             const response = await fetch(
@@ -41,8 +46,7 @@ export default function Registration() {
             }
           }}
         >
-          <h1 className="text-center text-xl">Sign Up</h1>
-          <h1 className="text-center text-lg">Register Your Account</h1>
+          <h1 className="text-center text-2xl font-bold">Sign Up</h1>
           <TextField
             variant="outlined"
             type="email"
@@ -55,7 +59,7 @@ export default function Registration() {
           <TextField
             variant="outlined"
             type="password"
-            label="Kata sandi"
+            label="Password"
             className="w-full"
             required
             onChange={(e) => setSignUp({ ...signUp, password: e.target.value })}
@@ -78,15 +82,15 @@ export default function Registration() {
           />
           <TextField
             variant="outlined"
-            type="text"
+            type="tel"
             label="Phone"
             className="w-full"
             required
             onChange={(e) => setSignUp({ ...signUp, phone: e.target.value })}
           />
           <div className="flex justify-between">
-            <Button type="submit" variant="contained">
-              Simpan
+            <Button type="submit" variant="contained" className="w-full">
+              Register
             </Button>
           </div>
         </form>

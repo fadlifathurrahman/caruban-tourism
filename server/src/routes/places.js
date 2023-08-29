@@ -5,7 +5,9 @@ const router = express.Router();
 
 // get all places data
 router.get("/", async (_req, res) => {
-  const places = await conn.query("SELECT * FROM places");
+  const places = await conn.query(
+    " SELECT a.*, b.category FROM places a, place_category b WHERE b.`id` = a.category_id"
+  );
   res.json(places);
 });
 
@@ -32,6 +34,20 @@ router.get("/additional-image/:id", async (req, res) => {
   } else {
     res.status(404);
     res.send("Places not found.");
+  }
+});
+
+// get category
+router.get("/category/:id", async (req, res) => {
+  const prepare = await conn.prepare(
+    " SELECT b.category FROM places a, place_category b WHERE b.`id` = a.category_id AND a.`id` = ?"
+  );
+  const category = (await prepare.execute([req.params.id]))[0];
+  if (category) {
+    res.json(category);
+  } else {
+    res.status(404);
+    res.send("Category not found.");
   }
 });
 

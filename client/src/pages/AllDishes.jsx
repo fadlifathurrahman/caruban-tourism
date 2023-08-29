@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Skeleton } from "@mui/material";
-import batik from "/batik.png";
+import batik from "/batik-reverse.png";
 
 export default function AllDishes() {
   const [keyword, setKeyword] = useState("");
@@ -16,7 +16,7 @@ export default function AllDishes() {
   }, []);
 
   return (
-    <main>
+    <main className="max-w-screen-xl">
       <header
         className="bg-gray-700 text-white text-sm flex justify-center
       py-5 mt-24"
@@ -33,8 +33,10 @@ export default function AllDishes() {
       </header>
 
       {dishes ? (
+        // dish`s card container
         <div
-          className="max-w-screen-xl py-4 gap-y-6
+          className="max-w-screen-xl text-xs
+           py-4 gap-y-6
           flex flex-wrap justify-evenly items-center"
         >
           {/* iteration and filter for dishes */}
@@ -46,31 +48,38 @@ export default function AllDishes() {
               // dish`s container
               <div key={dish.id}>
                 {/* dish card header */}
-                <div className="flex items-center">
+                <div className="flex items-center mb-5">
+                  {/* batik */}
+                  <img
+                    src={batik}
+                    className="relative 
+                    h-24 w-32 -mr-10"
+                  />
+
                   {/* dish`s name */}
                   <div
-                    className="bg-slate-800 text-white text-xl p-4 z-10 relative
-                    h-fit w-64 flex text-center justify-center rounded-bl-2xl rounded-tr-2xl"
+                    className="bg-red-900 text-white 
+                    p-3 z-10 relative
+                    h-fit w-full flex text-center justify-center
+                    rounded-br-2xl rounded-tl-2xl"
                   >
                     &quot;{dish.name}&quot;
                   </div>
-
-                  {/* batik */}
-                  <img src={batik} className="h-36 w-52 -ml-20 relative" />
                 </div>
 
                 {/* dish card body */}
                 <div
-                  className="bg-slate-700 p-6 -mt-14 ml-6 w-80
-                gap-4 flex flex-col items-center rounded-bl-2xl rounded-tr-2xl"
+                  className="bg-orange-300 p-6 -mt-14 ml-6 w-fit
+                gap-4 flex flex-col items-center 
+                rounded-bl-2xl rounded-tr-2xl"
                 >
                   {/* dish`s image */}
-                  <img src={dish.image} className="h-48" />
+                  <img src={dish.image} className="h-28 w-40" />
 
                   {/* dish`s detail and price */}
                   <div className="flex justify-center items-center w-full">
                     <Link to={`/dishes/${dish.id}`}>
-                      <button className="bg-red-700 text-white text-sm w-32 py-1">
+                      <button className="bg-red-900 text-white w-32 py-2">
                         Detail
                       </button>
                     </Link>

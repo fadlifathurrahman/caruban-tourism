@@ -8,17 +8,22 @@ export default function Header() {
   const { user } = useContext(UserContext);
 
   return (
+    // header container
     <div
-      className="sticky top-0 z-20 px-9 -mb-24
-      max-w-screen h-24
-      bg-slate-900/90 text-white
-     flex justify-between items-center"
+      className="sticky top-0 z-20 -mb-24
+      max-w-screen h-1/4
+      bg-slate-900/90 text-white text-xs
+     flex justify-around items-center"
     >
+      {/* caruban tourism logo */}
       <HeaderLogo />
+
+      {/* nav-bar */}
       <div className="flex gap-4 items-center">
         <Link to="/about">
           <button>About</button>
         </Link>
+        {/* decision for user */}
         {user ? (
           <DropdownAccount />
         ) : (

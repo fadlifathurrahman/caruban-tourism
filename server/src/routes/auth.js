@@ -134,4 +134,18 @@ router.put("/delete-account/:id", async (req, res) => {
     res.status(401).send("Password didn`t match.");
   }
 });
+
+// booking
+router.post("/booking", async (req, res) => {
+  try {
+    const prepare = await conn.prepare(
+      "INSERT INTO booking (place_id, user_id, `time`) VALUES (?, ?, ?)"
+    );
+    // execute user`s data to database
+    await prepare.execute([req.body.placeId, req.body.userId, req.body.time]);
+    res.send("Booking created.");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
 export default router;

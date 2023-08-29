@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { Navigate, useNavigate, useOutletContext } from "react-router-dom";
+import gate from "/gate.png";
 
 export default function Login() {
   const [login, setLogin] = useState({
@@ -17,9 +18,15 @@ export default function Login() {
     return <Navigate to="/" />;
   } else {
     return (
-      <main className="flex min-h-screen">
+      <main className="flex flex-col min-h-screen items-center">
+        <img
+          src={gate}
+          className="h-1/4
+          mt-24
+          lg:h-36"
+        />
         <form
-          className="m-auto bg-gray-100 p-8 rounded-3xl w-96 flex flex-col gap-4"
+          className="mx-auto p-8 rounded-3xl w-96 flex flex-col gap-4"
           onSubmit={async (e) => {
             e.preventDefault();
             const response = await fetch(
@@ -59,13 +66,13 @@ export default function Login() {
           <TextField
             variant="outlined"
             type="password"
-            label="Kata sandi"
+            label="Password"
             className="w-full"
             required
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
           />
-          <div className="flex justify-between">
-            <Button type="submit" variant="contained">
+          <div className="flex justify-between w-full">
+            <Button type="submit" variant="contained" className="w-full">
               Login
             </Button>
           </div>
