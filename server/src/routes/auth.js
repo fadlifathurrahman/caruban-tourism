@@ -117,14 +117,17 @@ router.put("/edit-phone/:id", async (req, res) => {
 
 // delete account
 router.put("/delete-account/:id", async (req, res) => {
-  const prepare = await conn.prepare(
-    "SELECT password FROM users WHERE email = ?"
-  );
-  const user = (await prepare.execute([req.body.email]))[0];
-  const result = await bcrypt.compare(req.body.confirmPassword, user.password);
-  if (result === true) {
+  const prepare = await conn.prepare("SELECT * FROM users WHERE id = ?");
+  const user = (await prepare.execute([req.params.id]))[0];
+  if (user) {
+    const result = await bcrypt.compare(
+      req.body.confirmPassword,
+      user.password
+    );
     try {
-      const prepare = await conn.prepare("DELETE FROM users WHERE id = ?");
+      const prepare = await conn.prepare(
+        "UPDATE users SET email = 'none' WHERE id = ?"
+      );
       await prepare.execute([req.params.id]);
       res.status(200).send("Your account deleted");
     } catch (error) {
