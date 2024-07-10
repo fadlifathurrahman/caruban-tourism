@@ -100,6 +100,9 @@ CREATE TABLE `users` (
   `phone` VARCHAR(256),
   PRIMARY KEY (`id`)
 );
+INSERT  INTO `users`(`id`, `email`, `password`, `name`, `username`, `phone`) VALUES
+(1, "test@email.com", "12345", "test only", "test_", "089123456789");
+
 
 DROP TABLE IF EXISTS `booking`;
 CREATE TABLE `booking` (
