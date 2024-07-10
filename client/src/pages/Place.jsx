@@ -231,13 +231,13 @@ export default function Place() {
                           })}
                       <p>per person </p>
                     </label>
-                    <label>
-                      Amount:
+                    <label className="flex gap-2 items-center">
+                      <p>Amount:</p>
                       <input
                         type="number"
                         label="Amount"
                         min="1"
-                        className="w-full 
+                        className="w-50 
                         py-2 px-4"
                         required
                         onChange={(e) => {
@@ -272,12 +272,6 @@ export default function Place() {
               )}
             </div>
           )}
-          {/* <QRCode
-            value="Bismillah"
-            bgColor="#000000"
-            fgColor="#FFFFFF"
-            size="20%"
-          /> */}
         </section>
       ) : (
         <div className="h-screen flex justify-center items-center">
