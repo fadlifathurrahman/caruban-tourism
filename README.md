@@ -1,7 +1,7 @@
 # Caruban Tourism 
 Caruban Tourism is a website that can give you some suggestions regarding tourist destinations and typical Cirebonese food which is very varied and diverse.
 
-## Fitur
+## Feature
 - User registration and verification
 - Recommended tourist destinations
 - Typical food recommendations
