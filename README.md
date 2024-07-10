@@ -2,7 +2,7 @@
 
 Caruban Tourism adalah website yang dapat memberikan Anda beberapa saran mengenai destinasi wisata dan makanan khas Cirebon yang sangat bervariasi dan beragam.
 
-## Fitur## Fitur
+## Fitur
 - Pendaftaran dan verifikasi pengguna
 - Rekomendasi destinasi wisata
 - Rekomendasi makanan khas
