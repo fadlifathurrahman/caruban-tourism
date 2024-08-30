@@ -58,7 +58,7 @@ export default function Place() {
 
   const [bookingData, setBookingData] = useState({
     placeId: id,
-    userId: user.id,
+    userId: user?.id,
     time: currentTime,
   });
 
@@ -268,7 +268,7 @@ export default function Place() {
                   </form>
                 </div>
               ) : (
-                <div>{user ? "Free" : <p>login first, click here</p>}</div>
+                <div>{user ? "Free" : <p>login first</p>}</div>
               )}
             </div>
           )}

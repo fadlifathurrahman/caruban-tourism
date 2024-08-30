@@ -4,12 +4,10 @@ import townHall from "/town-hall.png";
 export default function Footer() {
   return (
     <footer
-      className="bg-slate-800 text-white text-xs bottom-0
-    "
+      className="bg-slate-800 text-white text-xs bottom-0"
     >
       <section
-        className="flex justify-center items-end h-12 max-w-screen-2xl 
-      mt-24"
+        className="flex justify-center items-end h-12 max-w-screen-2xl mt-24"
       >
         {/* 2 lamp in left */}
         <div className="flex">
@@ -27,7 +25,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 items-center bottom-0">
-          <img src={townHall} className="w-40 " />
+          <img src={townHall} className="w-40" />
           <p className="mb-3">&copy; 2023 By Fathur Arrahman</p>
         </div>
 

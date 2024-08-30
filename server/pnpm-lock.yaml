@@ -22,6 +22,9 @@ dependencies:
   nodemon:
     specifier: ^3.1.4
     version: 3.1.4
+  server:
+    specifier: 'file:'
+    version: 'file:'
 
 packages:
 
@@ -1056,4 +1059,21 @@ packages:
 
   /yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+    dev: false
+
+  'file:':
+    resolution: {directory: '', type: directory}
+    name: server
+    version: 1.0.0
+    dependencies:
+      bcrypt: 5.1.1
+      cors: 2.8.5
+      dotenv: 16.3.1
+      express: 4.18.2
+      jsonwebtoken: 9.0.1
+      mariadb: 3.2.0
+      nodemon: 3.1.4
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
     dev: false
