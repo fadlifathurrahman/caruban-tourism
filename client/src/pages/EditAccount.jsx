@@ -40,7 +40,7 @@ export default function EditAccount() {
 
   if (user) {
     return (
-      <main className="flex flex-wrap min-h-screen max-w-screen-xl pt-24 gap-y-6 justify-evenly items-center">
+      <main className="flex flex-wrap min-h-screen max-w-screen-2xl pt-24 gap-y-6 justify-evenly items-center">
         {/* edit email */}
         <form
           className="mx-auto bg-gray-100 p-8 rounded-3xl w-96 flex flex-col gap-4"

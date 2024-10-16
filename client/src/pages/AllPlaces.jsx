@@ -18,7 +18,7 @@ export default function AllPlaces() {
   }, []);
 
   return (
-    <main className="">
+    <main className="max-w-screen-2xl">
       {/* search bar */}
       <header
         className="bg-gray-700 text-white text-sm 
@@ -60,7 +60,7 @@ export default function AllPlaces() {
 
       {places ? (
         <div
-          className="max-w-screen-xl text-xs
+          className="max-w-screen-2xl text-xs
            py-4 gap-y-6
           flex flex-wrap justify-evenly items-center"
         >

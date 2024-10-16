@@ -16,7 +16,7 @@ export default function AllDishes() {
   }, []);
 
   return (
-    <main className="max-w-screen-xl">
+    <main className="max-w-screen-2xl">
       <header
         className="bg-gray-700 text-white text-sm flex justify-center
       py-5 mt-24"
@@ -35,7 +35,7 @@ export default function AllDishes() {
       {dishes ? (
         // dish`s card container
         <div
-          className="max-w-screen-xl text-xs
+          className="max-w-screen-2xl text-xs
            py-4 gap-y-6
           flex flex-wrap justify-evenly items-center"
         >

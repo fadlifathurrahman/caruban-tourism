@@ -10,20 +10,20 @@ export const UserContext = createContext({
 });
 
 export default function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    api("/auth/me").then((user) => {
-      if (!user) {
+    api("/auth/me")
+      .then((user) => setUser(user || null))
+      .catch((error) => {
+        console.error("Failed to fetch user", error);
         setUser(null);
-      }
-      setUser(user);
-    });
+      });
   }, []);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <Header user={user} />
+      <Header user={user?.name ? user : null} />
       <Outlet context={[user, setUser]} />
       <Footer />
     </UserContext.Provider>

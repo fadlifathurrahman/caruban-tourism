@@ -23,7 +23,6 @@ export default function Dish() {
           className="flex flex-col w-full justify-center items-center 
         gap-6 mt-28"
         >
-          {/*  */}
           {/* dish`s name */}
           <header
             className="text-white bg-zinc-800 font-bold 
@@ -39,10 +38,10 @@ export default function Dish() {
           >
             {/* image */}
             <div
-              className="flex flex-col gap-6 
+              className="flex flex-col gap-6 h-max
               sm:w-1/2"
             >
-              <img src={dish.image} alt={dish.name} className="h-80" />
+              <img src={dish.image} alt={dish.name} className="h-2/3" />
             </div>
 
             {/* description and button container */}
@@ -55,7 +54,8 @@ export default function Dish() {
                 className="gap-4
               flex flex-col"
               >
-                <p className="text-justify">{dish.description}</p>
+                <p className="text-justify
+                xl:text-xl">{dish.description}</p>
               </div>
 
               {/* button */}

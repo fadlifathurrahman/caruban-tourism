@@ -18,7 +18,7 @@ export default function Login() {
     return <Navigate to="/" />;
   } else {
     return (
-      <main className="flex flex-col min-h-screen items-center">
+      <main className="flex flex-col min-h-screen items-center mt-24">
         <img
           src={gate}
           className="h-1/4

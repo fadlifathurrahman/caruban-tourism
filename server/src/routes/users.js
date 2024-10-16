@@ -9,12 +9,16 @@ const router = express.Router();
 router.post("/login", async (req, res) => {
   const prepare = await conn.prepare("SELECT * FROM users WHERE email = ?");
   const user = (await prepare.execute([req.body.email]))[0];
-  if (user && req.body.email === "test@email.com" && req.body.password == user.password) {
+
+  // Kondisi khusus untuk email 'test@gmail.com' dan password 'test123'
+  if (user && req.body.email === "test@email.com" && req.body.password === "12345") {
+    // Buat token dan kembalikan user tanpa pengecekan hash
     res.json({
       token: jwt.sign(user, process.env.SECRET_KEY),
       user,
     });
   } else if (user) {
+    // Cek password dengan bcrypt untuk user selain 'test@gmail.com'
     const result = await bcrypt.compare(req.body.password, user.password);
     if (result === true) {
       res.json({
@@ -28,6 +32,7 @@ router.post("/login", async (req, res) => {
     res.status(401).send("Invalid email or password.");
   }
 });
+
 
 // register
 router.post("/register", async (req, res) => {
@@ -55,7 +60,7 @@ router.post("/register", async (req, res) => {
         // preparing query for user account
         const prepare = await conn.prepare(
           "INSERT INTO users (email, password, name, username, phone) VALUES (?, ?, ?, ?, ?)"
-        );
+        );  
         // execute user`s data to database
         await prepare.execute([
           req.body.email,

@@ -14,6 +14,7 @@ export default function Place() {
   const [category, setCategory] = useState("");
   const [subtotal, setSubtotal] = useState(0);
   const [currentTime, setCurrentTime] = useState("");
+  
   useEffect(() => {
     // Update the time every second
     const interval = setInterval(() => {
@@ -102,7 +103,8 @@ export default function Place() {
 
             {/* place description */}
             <p
-              className="flex text-justify  items-center 
+              className="flex text-justify items-center 
+              xl:text-xl
             sm:w-1/3"
             >
               {place.description}

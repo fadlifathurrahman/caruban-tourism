@@ -21,7 +21,7 @@ export default function Registration() {
     return (
       <main
         className="flex min-h-screen items-center justify-center
-       mt-28"
+       mt-24"
       >
         <img src={dance} className="h-0 lg:h-80" />
         <form
